@@ -1,0 +1,29 @@
+---
+title: "Project 3"
+author: "Section 2"
+date: "October 15, 2015"
+output: 
+  html_document:
+  toc: True
+---
+
+```{r, results = "hide"}
+#Initializing Packages
+library(rvest)
+library(dplyr)
+library(tidyr)
+library(RCurl)
+library(stringr)
+library(ggplot2)
+```
+
+```{r}
+oscar_URL <- "https://en.wikipedia.org/wiki/Brazil_national_football_team#FIFA_World_Cup"
+
+oscar_Data <- WC_URL %>% 
+  html() %>% 
+  html_node(xpath ='//*[@id="mw-content-text"]/table[2]') %>% 
+  html_table(header = NA, trim = TRUE, fill= TRUE)
+head(WC_Data)
+
+```
